@@ -1,0 +1,14 @@
+@import 'src/constants/constants.scss';
+
+.error {
+    display: block;
+    text-align: center;
+    .error_image {
+        margin: 50px 0;
+    }
+    .error_title {
+        font-size: 24px;
+        color: $color_mint;
+        margin-bottom: 50px;
+    }
+}

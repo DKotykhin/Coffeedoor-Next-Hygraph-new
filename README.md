@@ -1,34 +1,80 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# CoffeeDoor Brewbar & Coffee shop
 
-First, run the development server:
+A brief description of what this project does and who it's for
+
+![Logo](https://i.ibb.co/VxVb9gn/logo-700x191.webp)
+
+
+## Features
+
+- using Next JS for SSR
+- React, Typescript
+- MUI, SCSS
+- Hygraph CMS for content placing
+- GraphQL
+- Three languages: ua, en, ru
+- Google Analitycs
+- Mobile friendly
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`TELEGRAM_TOKEN`
+
+`TELEGRAM_CHAT_ID`
+
+`NEXT_PUBLIC_HYGRAPH_URL`
+
+`NEXT_PUBLIC_GOOGLE_DATA_ID`
+
+## Deploy on Vercel
+
+  [https://coffeedoor-next-hygraph.vercel.app](https://coffeedoor-next-hygraph.vercel.app)
+
+  [https://luckycat.pp.ua](https://www.luckycat.pp.ua/)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/DKotykhin/Coffeedoor-next-Hygraph.git
+```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the server
 
 ```bash
 npm run dev
 # or
-yarn dev
-# or
-pnpm dev
+yarn
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Color Reference
 
-To learn more about Next.js, take a look at the following resources:
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Firm grey | ![#333333](https://via.placeholder.com/10/333333?text=+) #333333 |
+| Firm mint | ![#00a1b6](https://via.placeholder.com/10/00a1b6?text=+) #00a1b6 |
+| Firm brown | ![#683b39](https://via.placeholder.com/10/683b39?text=+) #683b39 |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [@DKotykhin](https://github.com/DKotykhin)
