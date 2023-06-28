@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 import { Container, Box, Typography } from "@mui/material";
 import DoneIcon from "@mui/icons-material/Done";
 
-import styles from './aboutblock.module.scss';
+import styles from './aboutBlock.module.scss';
 import PhotoList from "./PhotoList";
 
 const benefitsItem = [
