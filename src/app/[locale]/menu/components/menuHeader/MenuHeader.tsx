@@ -29,6 +29,8 @@ const MenuHeader: React.FC = () => {
                     width={700}
                     height={191}
                     priority={true}
+                    placeholder="blur"
+                    blurDataURL={"/webp/logo_700x191.webp"}
                     className={styles.menu__image}
                 />
             </Link>
