@@ -39,7 +39,7 @@ const PhotoList = () => {
                                 height: 'auto',
                             }}
                             placeholder="blur"
-                            blurDataURL={`/aboutImages/${item.img}`}
+                            blurDataURL={item.url}
                         />
                     </ImageListItem>
                 );
