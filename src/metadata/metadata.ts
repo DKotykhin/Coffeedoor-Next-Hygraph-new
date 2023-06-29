@@ -25,7 +25,7 @@ export const mainPageMetaData: Metadata = {
         title: "CoffeeDoor - кав'ярня та магазин свіжообсмаженої кави",
         description:
             "CoffeeDOOR – це кавовий бренд, який по'єднує в собі свіжообсмажену каву рівня Speciality, кращі кавові технології, стильний дизайнерський інтер'єр, швидкий і дружній сервіс",
-        images: ["/x7YYbNk/logo-1285x670.jpg"],
+        images: ["/F6MJ8zr/logo512.webp"],
     },
 };
 

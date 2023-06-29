@@ -1,22 +1,17 @@
 import React from "react";
 
-import { Typography, Box, AccordionDetails } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { Typography, Box } from "@mui/material";
 
-import AccordeonItem from "./AccordeonItem";
+import AccordionItem from "./AccordionItem";
+import { StyledAccordionDetails } from "./StyledComponents";
 
 import { IBody, IItem } from "types/menuTypes";
 
-const StyledAccordionDetails = styled(AccordionDetails)(({ theme }) => ({
-    padding: theme.spacing(2),
-    borderTop: "1px solid rgba(0, 0, 0, .125)",
-}));
-
-interface IBlock {
-    blockItem: IItem    
+interface IAccordionSum {
+    blockItem: IItem
 }
 
-export const AccordeonBlock: React.FC<IBlock> = ({ blockItem }) => {
+export const AccordionSum: React.FC<IAccordionSum> = ({ blockItem }) => {
     return (
         <StyledAccordionDetails>
             {blockItem.subtitle &&
@@ -26,7 +21,7 @@ export const AccordeonBlock: React.FC<IBlock> = ({ blockItem }) => {
             }
             {blockItem.body?.map((item: IBody, i: number) => (
                 <Box key={i} sx={{ m: 2 }}>
-                    <AccordeonItem
+                    <AccordionItem
                         {...item} />
                 </Box>
             ))}

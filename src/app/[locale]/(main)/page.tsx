@@ -6,6 +6,7 @@ import FirstBlock from './components/firstBlock/FirstBlock';
 import InfoBlock from './components/infoBlock/InfoBlock';
 import NavigationDrawer from './components/navigationDrawer/NavigationDrawer';
 import AboutBlock from './components/aboutBlock/AboutBlock';
+import CatalogList from './components/catalog/CatalogList';
 
 import { GetStoreList } from 'service/storeService';
 
@@ -20,6 +21,7 @@ const Home = async () => {
             <FirstBlock />
             <NavigationDrawer />
             <InfoBlock />
+            <CatalogList data={data}/>
             <AboutBlock />
         </>
     );

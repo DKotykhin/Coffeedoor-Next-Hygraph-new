@@ -1,18 +1,25 @@
+export enum GroupList {
+    "A" = "coffeeList",
+    "B" = "teaList",
+    "C" = "jamList",
+    "D" = "millsList",
+    "E" = "accessoriesList",
+}
 export interface ICatalogList {
-    coffeeList: { 
-        edges: ICard[]
+    [GroupList.A]: {
+        edges: ICard[];
     };
-    jamList: { 
-        edges: ICard[]
+    [GroupList.B]: {
+        edges: ICard[];
     };
-    teaList: { 
-        edges: ICard[]
+    [GroupList.C]: {
+        edges: ICard[];
     };
-    millsList: { 
-        edges: ICard[]
+    [GroupList.D]: {
+        edges: ICard[];
     };
-    accessoriesList: { 
-        edges: ICard[]
+    [GroupList.E]: {
+        edges: ICard[];
     };
 }
 
@@ -23,15 +30,15 @@ export interface ICard {
         bodyRu: IBody;
         bodyEn: IBody;
         cardImg: {
-            url: string
+            url: string;
         };
-        listImg: Array<{url: string}>;
+        listImg: Array<{ url: string }>;
         weight?: number;
         price: number;
         order: boolean;
         hide: boolean;
-        position: number;    
-    }
+        position: number;
+    };
 }
 
 export interface IBody {
@@ -47,7 +54,7 @@ export interface IBody {
     link?: {
         title: string;
         value: string;
-    }
+    };
 }
 
 export interface IFilter {

@@ -48,5 +48,53 @@
         "itemD": "Opportunity to purchase tea, coffee beans and accessories for making coffee at home",
         "itemE": "Stylish and comfortable interior design",
         "itemF": "A professional approach where everything matters"
+    },
+    "catalog": {
+        "coffee_title": "Coffee beans",
+        "coffee_subtitle": "Freshly roasted coffee ТМ CoffeeDOOR",
+        "tea_title": "Leaf tea",
+        "tea_subtitle": "Natural black, green, herbal and fruit teas of the German TM SOHO. Made without the addition of dyes, artificial flavors, preservatives",
+        "jam_title": "Jam TM ARTVILLAGE",
+        "jam_subtitle": "Made strictly from natural ingredients",
+        "mills_title": "Сoffee grinders",
+        "mills_subtitle": "If need to grind coffee at home",
+        "accessories_title": "Coffee accessories",
+        "accessories_subtitle": "For brewing coffee at home",
+        "filters": "Filters",
+        "all_button": "All",
+        "buttonA": "all",
+        "buttonB": "green",
+        "buttonC": "black",
+        "buttonD": "herbal",
+        "buttonE": "fruit",
+        "valueA": "",
+        "valueB": "green",
+        "valueC": "black",
+        "valueD": "herbal",
+        "valueE": "fruit"
+    },
+    "card": {
+        "button_1": "Details",
+        "button_2": "Add",
+        "currency": " uah",
+        "weight": "Weight: ",
+        "made": "Made by: ",
+        "country": "Country: ",
+        "order": "on order",
+        "unit": "g"
+    },
+    "basket": {
+        "title": "Your order:",
+        "message": "Basket is empty",
+        "total": "Total: ",
+        "weight": "g",
+        "currency": " uah",
+        "name": "Your name",
+        "phone": "Your phone",
+        "delivery": "Delivery method",
+        "var_1": "pick up at coffee shop",
+        "var_2": "delivery according to the carrier's tariffs",
+        "comment": "Delivery address or comment",
+        "submit": "submit"
     }
 }

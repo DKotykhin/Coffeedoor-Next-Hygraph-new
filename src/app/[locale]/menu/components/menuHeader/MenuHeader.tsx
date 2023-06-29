@@ -12,6 +12,7 @@ import { Box, Container, Typography } from '@mui/material';
 import styles from './menuHeader.module.scss';
 import { langButtons, useLang } from "hooks/useLang";
 import ReturnButton from "components/returnButton/ReturnButton";
+import logo from '/public/webp/logo_700x191.webp';
 
 const MenuHeader: React.FC = () => {
     const t = useTranslations("menu");
@@ -24,11 +25,12 @@ const MenuHeader: React.FC = () => {
         <Container maxWidth="md" className={styles.menu}>
             <Link href={`/${lang}`}>
                 <Image
-                    src={"/webp/logo_700x191.webp"}
+                    src={logo}
                     alt="logo Coffeedoor"
-                    width={700}
-                    height={191}
-                    priority={true}
+                    style={{
+                        width: '90%',
+                        height: 'auto',
+                    }}
                     placeholder="blur"
                     blurDataURL={"/webp/logo_700x191.webp"}
                     className={styles.menu__image}

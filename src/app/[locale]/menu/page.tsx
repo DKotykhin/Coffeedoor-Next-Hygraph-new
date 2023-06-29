@@ -1,7 +1,7 @@
 import React from 'react';
 
 import MenuHeader from './components/menuHeader/MenuHeader';
-import Accordeon from './components/accordeon/Accordeon';
+import AccordionComponent from './components/accordion/AccordionComponent';
 
 import { menuPageMetaData } from "metadata/metadata";
 import { GetMenuList } from 'service/menuService';
@@ -15,7 +15,7 @@ const MenuPage: React.FC = async () => {
     return (
         <main>
             <MenuHeader />
-            <Accordeon menulist={data.menuList.edges} />
+            <AccordionComponent menulist={data.menuList.edges} />
         </main>
     );
 };

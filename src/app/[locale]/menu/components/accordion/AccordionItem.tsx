@@ -4,7 +4,7 @@ import { Typography } from "@mui/material";
 
 import { IBody } from "types/menuTypes";
 
-const AccordeonItem: React.FC<IBody> = (item) => {
+const AccordionItem: React.FC<IBody> = (item) => {
 
     const t = useTranslations("menu");
 
@@ -26,4 +26,4 @@ const AccordeonItem: React.FC<IBody> = (item) => {
     );
 };
 
-export default AccordeonItem;
+export default AccordionItem;

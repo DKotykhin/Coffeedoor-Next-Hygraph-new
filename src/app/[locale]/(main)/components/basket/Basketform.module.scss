@@ -1,0 +1,35 @@
+@import 'constants/constants.scss';
+
+.form {
+    .label {
+        font-size: 18px;
+        color: #000;
+        font-weight: 500;
+        white-space: normal;
+        margin: 20px 0 10px 0;
+    }
+    .error {
+        color: #ff0000;
+        font-size: 14px;
+    }
+    .submitbutton {
+        @include button;
+        display: block;
+        margin: 0 auto;
+        margin-top: 32px;
+        padding: 10px;
+        width: 220px;
+        color: #fff;
+        border: 1px solid $color_mint;
+        background-color: $color_mint;
+        &:hover {
+            color: black;
+            background-color: #fff;
+        }
+        &:disabled {
+            color: $color_lightGrey;
+            border: 1px solid $color_lightGrey;
+            background-color: #fff;
+        }
+    }
+}

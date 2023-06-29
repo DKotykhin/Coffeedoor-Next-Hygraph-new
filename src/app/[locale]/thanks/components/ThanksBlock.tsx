@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Container, Typography } from "@mui/material";
 
 import ReturnButton from 'components/returnButton/ReturnButton';
+import logo from '/public/webp/logo_700x191.webp';
 
 import styles from './thanksBlock.module.scss';
 
@@ -19,11 +20,14 @@ const ThanksBlock: React.FC = () => {
         <Container maxWidth="md" className={styles.thanks}>
             <Link href={'/'}>
                 <Image
-                    src={"/webp/logo_700x191.webp"}
+                    src={logo}
                     alt="logo Coffeedoor"
-                    width={700}
-                    height={191}
-                    priority={true}
+                    style={{
+                        width: '90%',
+                        height: 'auto',
+                    }}
+                    placeholder="blur"
+                    blurDataURL={"/webp/logo_700x191.webp"}
                     className={styles.thanks__image}
                 />
             </Link>

@@ -12,6 +12,7 @@ import { Box, Drawer, Divider, Link as MuiLink } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { langButtons, useLang } from 'hooks/useLang';
+import { GroupList } from "types/storeTypes";
 
 import styles from './navigationDrawer.module.scss';
 
@@ -21,11 +22,11 @@ interface IDrawerTitle {
 };
 
 const catalogTitleList: IDrawerTitle[] = [
-    { title: "titleA", id: "#coffee" },
-    { title: "titleB", id: "#tea" },
-    { title: "titleE", id: "#jam" },
-    { title: "titleC", id: "#mills" },
-    { title: "titleD", id: "#accessories" },
+    { title: "titleA", id: GroupList.A },
+    { title: "titleB", id: GroupList.B },
+    { title: "titleE", id: GroupList.C },
+    { title: "titleC", id: GroupList.D },
+    { title: "titleD", id: GroupList.E },
 ];
 const homePageTitleList: IDrawerTitle[] = [
     { title: "titleX", id: "#about" },
@@ -72,7 +73,7 @@ const NavigationDrawer: React.FC = () => {
                             <ListItem key={text.id} disablePadding>
                                 <MuiLink
                                     className={styles.drawer__item}
-                                    href={text.id}
+                                    href={'#' + text.id}
                                 >
                                     {t(text.title)}
                                 </MuiLink>
