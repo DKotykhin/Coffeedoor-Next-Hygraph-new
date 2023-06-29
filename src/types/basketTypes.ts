@@ -4,6 +4,7 @@ export interface IBasket {
     price: number;
     quantity: number;
     weight?: number;
+    image: string;
     id: string;
 }
 

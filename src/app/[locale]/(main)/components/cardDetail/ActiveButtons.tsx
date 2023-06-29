@@ -21,7 +21,7 @@ interface IActiveButtons {
 }
 
 const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => {
-    const { id, price, weight } = item.node;
+    const { id, price, weight, cardImg } = item.node;
     const { title, name } = body;
 
     const [quantity, setQuantity] = useState<number>(1);
@@ -44,6 +44,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
             price,
             weight,
             quantity,
+            image: cardImg.url,
             id
         };
         // console.log(fullData);

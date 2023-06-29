@@ -7,7 +7,7 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 
 import { selectBasket } from "store/selectors";
 
-import styles from "./Basket.module.scss";
+import styles from "./basketIcon.module.scss";
 
 const StyledBadge = styled(Badge)`
     & .MuiBadge-badge {
@@ -33,10 +33,10 @@ const BasketIcon: React.FC<IBasketIcon> = ({ handleOpen }) => {
     return (
         <>
             {basketdata.length > 0 && (
-                <Box className={styles.basket} onClick={handleOpen}>
+                <Box className={styles.basketIcon} onClick={handleOpen}>
                     <StyledBadge badgeContent={totalQuantity}>
                         <ShoppingBasketOutlinedIcon
-                            className={styles.basket_icon}
+                            className={styles.basketIcon__icon}
                         />
                     </StyledBadge>
                 </Box>

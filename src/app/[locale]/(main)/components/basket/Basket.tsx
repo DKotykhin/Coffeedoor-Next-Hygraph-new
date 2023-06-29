@@ -4,6 +4,8 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
 
 import { Backdrop, Box, Modal, Typography, Divider, Fade } from "@mui/material";
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 import CloseIcon from "@mui/icons-material/Close";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -22,11 +24,13 @@ import { IBasket, IFormData, ITelegramData } from "types/basketTypes";
 
 import styles from "./Basket.module.scss";
 import sendToTelegram from "service/sendToTelegram";
+import Image from "next/image";
 
 const Basket: React.FC = () => {
     const [open, setOpen] = React.useState(false);
     const router = useRouter();
     const t = useTranslations("basket");
+    const matches = useMediaQuery('(min-width:801px)');
 
     const { basketdata } = useAppSelector(selectBasket);
     const dispatch = useAppDispatch();
@@ -72,65 +76,76 @@ const Basket: React.FC = () => {
                 }}
             >
                 <Fade in={open}>
-                    <Box sx={{ bgcolor: "background.paper", boxShadow: 24 }} className={styles.modal}>
+                    <Box className={styles.basketModal}>
                         <CloseIcon
-                            className={styles.modal_close}
+                            className={styles.basketModal__closeBasket}
                             onClick={handleClose}
                         />
                         <Typography
-                            className={styles.modal_title}
+                            className={styles.basketModal__title}
                             component="h2"
                         >
                             {t("title")}
                         </Typography>
+                        <Divider />
                         {basketdata.length > 0 ? (
                             basketdata.map((item: IBasket, i: number) => (
-                                <Box key={i}>
-                                    <Box className={styles.modal_block}>
-                                        <Typography
-                                            className={styles.modal_name}
-                                        >
-                                            {item.title}
-                                            {" "}
-                                            {item.name}
-                                            {item.weight ? `, ${item.weight}${t("weight")}` : ""}
-                                        </Typography>
-                                        <CloseIcon
-                                            className={styles.modal_icon}
-                                            onClick={() =>
-                                                handleRemove(item.id)
-                                            }
-                                        />
+                                <Box key={i} className={styles.basketModal__box}>
+                                    <Box className={styles.basketModal__itemBlock}>
+                                        {matches &&
+                                            <Image
+                                                src={item.image}
+                                                alt={item.name}
+                                                width={70}
+                                                height={70}
+                                            />
+                                        }
+                                        <Box sx={{ flexGrow: 1 }}>
+                                            <Box className={styles.basketModal__nameBlock}>
+                                                <Typography className={styles.basketModal__itemName}>
+                                                    {item.title}
+                                                    {" "}
+                                                    {item.name}
+                                                    {item.weight ? `, ${item.weight}${t("weight")}` : ""}
+                                                </Typography>
+                                                <CloseIcon
+                                                    className={styles.basketModal__removeItem}
+                                                    onClick={() =>
+                                                        handleRemove(item.id)
+                                                    }
+                                                />
+                                            </Box>
+                                            <Typography className={styles.basketModal__price}>
+                                                <RemoveCircleOutlineIcon
+                                                    className={styles.basketModal__quantityIcons}
+                                                    onClick={() =>
+                                                        handleDecrement(item.id)
+                                                    }
+                                                />{" "}
+                                                {item.quantity}{" "}
+                                                <AddCircleOutlineIcon
+                                                    className={styles.basketModal__quantityIcons}
+                                                    onClick={() =>
+                                                        handleIncrement(item.id)
+                                                    }
+                                                />
+                                                {" x "}
+                                                {item.price}
+                                                {t("currency")}{" = "}
+                                                {item.quantity * item.price}
+                                                {t("currency")}
+                                            </Typography>
+                                        </Box>
                                     </Box>
-                                    <Typography className={styles.modal_price}>
-                                        <RemoveCircleOutlineIcon
-                                            className={styles.add_remove_icons}
-                                            onClick={() =>
-                                                handleDecrement(item.id)
-                                            }
-                                        />{" "}
-                                        {item.quantity}{" "}
-                                        <AddCircleOutlineIcon
-                                            className={styles.add_remove_icons}
-                                            onClick={() =>
-                                                handleIncrement(item.id)
-                                            }
-                                        />
-                                        {" x "}
-                                        {item.price}
-                                        {t("currency")}{" = "}
-                                        {item.quantity * item.price}
-                                        {t("currency")}
-                                    </Typography>
-                                    <Divider sx={{ mt: 1.5 }} />
+                                    <Divider sx={{ mt: 1 }} />
                                 </Box>
                             ))
                         ) : (
-                            <Box className={styles.modal_subtitle}>
+                            <Box className={styles.basketModal__subtitle}>
                                 {t("message")}
                             </Box>
                         )}
-                        <Typography className={styles.modal_total}>
+                        <Typography className={styles.basketModal__total}>
                             {t("total")}
                             {basketdata.reduce(
                                 (sum: number, currentValue: { price: number; quantity: number; }) =>
