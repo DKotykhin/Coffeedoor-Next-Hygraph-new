@@ -1,24 +1,24 @@
 export enum GroupList {
-    "A" = "coffeeList",
-    "B" = "teaList",
-    "C" = "jamList",
-    "D" = "millsList",
-    "E" = "accessoriesList",
+    "coffee" = "coffeeList",
+    "tea" = "teaList",
+    "jam" = "jamList",
+    "mills" = "millsList",
+    "accessories" = "accessoriesList",
 }
 export interface ICatalogList {
-    [GroupList.A]: {
+    [GroupList.coffee]: {
         edges: ICard[];
     };
-    [GroupList.B]: {
+    [GroupList.tea]: {
         edges: ICard[];
     };
-    [GroupList.C]: {
+    [GroupList.jam]: {
         edges: ICard[];
     };
-    [GroupList.D]: {
+    [GroupList.mills]: {
         edges: ICard[];
     };
-    [GroupList.E]: {
+    [GroupList.accessories]: {
         edges: ICard[];
     };
 }

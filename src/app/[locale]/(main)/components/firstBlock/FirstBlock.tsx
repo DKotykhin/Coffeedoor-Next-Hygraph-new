@@ -26,7 +26,7 @@ const FirstBlock: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 2, delay: 0.3 }}
             >
-                <Typography className={styles.firstBlock__title} component="h3">
+                <Typography className={styles.firstBlock__title}>
                     {"CoffeeDoor"}
                 </Typography>
                 <Typography

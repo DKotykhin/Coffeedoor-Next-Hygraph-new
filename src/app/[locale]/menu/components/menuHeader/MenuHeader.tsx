@@ -36,10 +36,10 @@ const MenuHeader: React.FC = () => {
                     className={styles.menu__image}
                 />
             </Link>
-            <Typography className={styles.menu__title} component="h2">
+            <Typography className={styles.menu__title}>
                 {t("title")}
             </Typography>
-            <Typography className={styles.menu__subtitle} component="h3">
+            <Typography className={styles.menu__subtitle}>
                 {t("subtitle")}
             </Typography>
             {langButtons.map(item => (

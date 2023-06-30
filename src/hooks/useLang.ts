@@ -2,7 +2,12 @@ import { usePathname } from "next/navigation";
 
 export type Languages = "uk" | "ru" | "en";
 
-export const langButtons = [
+interface ILangButtons {
+    key: Languages;
+    label: string;
+}
+
+export const langButtons: ILangButtons[] = [
     { key: "uk", label: "Ua" },
     { key: "ru", label: "Ru" },
     { key: "en", label: "En" },

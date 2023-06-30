@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useTranslations } from 'next-intl';
 
 import { Typography, Button, Box, CardActionArea } from "@mui/material";
-import { Card, CardActions, CardContent } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 
 import DetailedCard from "../cardDetail/DetailedCard";
 
@@ -21,7 +21,7 @@ interface IItemCard {
 }
 
 const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
-    
+
     const { id, bodyUa, bodyRu, bodyEn, price, weight, cardImg, order } = item.node;
 
     let body: IBody;
@@ -68,43 +68,44 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                         unoptimized={true}
                         blurDataURL={cardImg.url}
                         placeholder={'blur'}
+                        priority={false}
                     />
-                    <CardContent className={styles.card__content}>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {title} {name}
-                        </Typography>
-                        <Typography className={styles.card__price}>
-                            {price}
-                            {t("currency")}
-                        </Typography>
-                        <Typography className={styles.card__description}>
-                            {description}
-                        </Typography>
-                        <Box className={styles.card__boxItems}>
-                            {order &&
-                                <Typography color="#ff0000" sx={{ mb: 1 }}>
-                                    {t("order")}
-                                </Typography>
-                            }
-                            {weight &&
-                                <Typography variant="body2" color="text.secondary">
-                                    {t("weight")}
-                                    {weight}
-                                    {t("unit")}
-                                </Typography>
-                            }
-                            {sort?.key &&
-                                <Typography
-                                    variant="body2"
-                                    color="text.secondary"
-                                >
-                                    {sort.key}{": "}{sort.value}
-                                </Typography>
-                            }
-                        </Box>
-                    </CardContent>
                 </CardActionArea>
-                <CardActions className={styles.card__buttons}>
+                <CardContent className={styles.card__content}>
+                    <Typography gutterBottom variant="h5" component="div">
+                        {title} {name}
+                    </Typography>
+                    <Typography className={styles.card__price}>
+                        {price}
+                        {t("currency")}
+                    </Typography>
+                    <Typography className={styles.card__description}>
+                        {description}
+                    </Typography>
+                    <Box className={styles.card__boxItems}>
+                        {order &&
+                            <Typography color="#ff0000" sx={{ mb: 1 }}>
+                                {t("order")}
+                            </Typography>
+                        }
+                        {weight &&
+                            <Typography variant="body2" color="text.secondary">
+                                {t("weight")}
+                                {weight}
+                                {t("unit")}
+                            </Typography>
+                        }
+                        {sort?.key &&
+                            <Typography
+                                variant="body2"
+                                color="text.secondary"
+                            >
+                                {sort.key}{": "}{sort.value}
+                            </Typography>
+                        }
+                    </Box>
+                </CardContent>
+                <Box className={styles.card__buttons}>
                     <Button
                         className={styles.button__detail}
                         onClick={handleDetail}
@@ -127,7 +128,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                     >
                         {t("button_2")}
                     </Button>
-                </CardActions>
+                </Box>
             </Card>
         </>
     );

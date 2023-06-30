@@ -22,11 +22,11 @@ interface IDrawerTitle {
 };
 
 const catalogTitleList: IDrawerTitle[] = [
-    { title: "titleA", id: GroupList.A },
-    { title: "titleB", id: GroupList.B },
-    { title: "titleE", id: GroupList.C },
-    { title: "titleC", id: GroupList.D },
-    { title: "titleD", id: GroupList.E },
+    { title: "titleA", id: GroupList.coffee },
+    { title: "titleB", id: GroupList.tea },
+    { title: "titleE", id: GroupList.jam },
+    { title: "titleC", id: GroupList.mills },
+    { title: "titleD", id: GroupList.accessories },
 ];
 const homePageTitleList: IDrawerTitle[] = [
     { title: "titleX", id: "#about" },

@@ -29,28 +29,28 @@ const teaFilter: IFilter[] = [
 
 const GroupData: IGroupData[] = [
     {
-        group: GroupList.A,
+        group: GroupList.coffee,
         title: "coffee_title",
         subtitle: "coffee_subtitle",
     },
     {
-        group: GroupList.B,
+        group: GroupList.tea,
         title: "tea_title",
         subtitle: "tea_subtitle",
         filterArray: teaFilter,
     },
     {
-        group: GroupList.C,
+        group: GroupList.jam,
         title: "jam_title",
         subtitle: "jam_subtitle",
     },
     {
-        group: GroupList.D,
+        group: GroupList.mills,
         title: "mills_title",
         subtitle: "mills_subtitle",
     },
     {
-        group: GroupList.E,
+        group: GroupList.accessories,
         title: "accessories_title",
         subtitle: "accessories_subtitle",
     },

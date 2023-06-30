@@ -40,6 +40,7 @@ const PhotoList = () => {
                             }}
                             placeholder="blur"
                             blurDataURL={item.url}
+                            priority={false}
                         />
                     </ImageListItem>
                 );
