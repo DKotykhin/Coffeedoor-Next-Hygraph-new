@@ -2,9 +2,15 @@ import { useTranslations } from 'next-intl';
 
 import { Typography } from "@mui/material";
 
-import { IBody } from "types/menuTypes";
+import { IMenuUnit } from "types/menuTypes";
+import { Languages } from 'hooks/useLang';
 
-const AccordionItem: React.FC<IBody> = (item) => {
+interface IAccordionItem {
+    item: IMenuUnit,
+    lang: Languages,
+}
+
+const AccordionItem: React.FC<IAccordionItem> = ({ item, lang }) => {
 
     const t = useTranslations("menu");
 
@@ -13,10 +19,10 @@ const AccordionItem: React.FC<IBody> = (item) => {
             <Typography
                 sx={{ fontWeight: 700, fontSize: 18 }}
             >
-                {item.name}
+                {item.name[lang]}
             </Typography>
             <Typography sx={{ color: "text.secondary" }}>
-                {item.description}
+                {item.description?.[lang]}
             </Typography>
             <Typography sx={{ fontSize: 18 }}>
                 {item.price}

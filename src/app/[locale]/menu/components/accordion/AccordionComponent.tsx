@@ -33,19 +33,12 @@ const AccordionComponent: React.FC<IAccordion> = ({ menulist }) => {
                 >
                     <StyledAccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography sx={{ fontWeight: 700, fontSize: 22, mr: 2 }}>
-                            {lang === 'uk'
-                                ? item.node.ua.title
-                                : lang === 'en'
-                                    ? item.node.en.title
-                                    : item.node.ru.title}
+                            {item.node.title[lang]}
                         </Typography>
                     </StyledAccordionSummary>
                     <AccordionSum
-                        blockItem={lang === 'uk'
-                            ? item.node.ua
-                            : lang === 'en'
-                                ? item.node.en
-                                : item.node.ru}
+                        blockItem={item}
+                        lang={lang}
                     />
                 </StyledAccordion>
             ))}

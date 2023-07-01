@@ -1,6 +1,12 @@
-import { usePathname } from "next/navigation";
+import { useLocale } from "next-intl";
 
-export type Languages = "uk" | "ru" | "en";
+// export type Languages = "uk" | "ru" | "en";
+
+export enum Languages {
+    "uk" = "uk",
+    "ru" = "ru",
+    "en" = "en",
+}
 
 interface ILangButtons {
     key: Languages;
@@ -8,26 +14,27 @@ interface ILangButtons {
 }
 
 export const langButtons: ILangButtons[] = [
-    { key: "uk", label: "Ua" },
-    { key: "ru", label: "Ru" },
-    { key: "en", label: "En" },
+    { key: Languages.uk, label: "Ua" },
+    { key: Languages.ru, label: "Ru" },
+    { key: Languages.en, label: "En" },
 ];
 
 export const useLang = (): Languages => {
-    const pathname = usePathname();
+    const locale = useLocale();
+
     let lang: Languages;
-    switch (true) {
-        case pathname.startsWith("/uk"):
-            lang = "uk";
+    switch (locale) {
+        case "uk":
+            lang = Languages.uk;
             break;
-        case pathname.startsWith("/ru"):
-            lang = "ru";
+        case "ru":
+            lang = Languages.ru;
             break;
-        case pathname.startsWith("/en"):
-            lang = "en";
+        case "en":
+            lang = Languages.en;
             break;
         default:
-            lang = "uk";
+            lang = Languages.uk;
     }
 
     return lang;

@@ -3,42 +3,32 @@ import { IMenuList } from "types/menuTypes";
 const graphqlAPI = process.env.NEXT_PUBLIC_HYGRAPH_URL || "";
 
 const query = `
-    fragment NameParts on MenuBlock {
-        title
-        subtitle
-        body {
-            name
-            description
-            price
-        }
+    fragment Languages on Lang {
+        uk
+        ru
+        en
     }
-    query GetMenuList {
-        menuList: menuListsConnection(
-            orderBy: position_ASC
-            where: { hide_not: true }
-            first: 15
-        ) {
+    query newMenu {
+        menuList: menusConnection(where: {hidden: false}) {
             edges {
                 node {
-                    ua {
-                        ...NameParts
-                    }
-                    ru {
-                        ...NameParts
-                    }
-                    en {
-                        ...NameParts
-                    }
-                    id
-                    hide
+                    title { ...Languages }
+                    subtitle { ...Languages }
+                    hidden
                     position
+                    items {
+                        name { ...Languages }
+                        description { ...Languages }
+                        price
+                        hidden
+                    }
                 }
             }
         }
     }
 `;
 
-export const GetMenuList = async (): Promise<IMenuList> => {
+export const GetMenu = async (): Promise<IMenuList> => {
     const { data } = await fetch(graphqlAPI, {
         method: "POST",
         headers: {

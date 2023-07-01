@@ -5,24 +5,28 @@ import { Typography, Box } from "@mui/material";
 import AccordionItem from "./AccordionItem";
 import { StyledAccordionDetails } from "./StyledComponents";
 
-import { IBody, IItem } from "types/menuTypes";
+import { Languages } from "hooks/useLang";
+import { IMenu, IMenuUnit } from "types/menuTypes";
 
 interface IAccordionSum {
-    blockItem: IItem
+    blockItem: IMenu,
+    lang: Languages,
 }
 
-export const AccordionSum: React.FC<IAccordionSum> = ({ blockItem }) => {
+export const AccordionSum: React.FC<IAccordionSum> = ({ blockItem, lang }) => {
     return (
         <StyledAccordionDetails>
-            {blockItem.subtitle &&
+            {blockItem.node.subtitle &&
                 <Typography sx={{ ml: 2, fontSize: '18px', fontStyle: 'italic' }}>
-                    {blockItem.subtitle}
+                    {blockItem.node.subtitle[lang]}
                 </Typography>
             }
-            {blockItem.body?.map((item: IBody, i: number) => (
+            {blockItem.node.items?.map((item: IMenuUnit, i: number) => (
                 <Box key={i} sx={{ m: 2 }}>
                     <AccordionItem
-                        {...item} />
+                        item={item}
+                        lang={lang}
+                    />
                 </Box>
             ))}
         </StyledAccordionDetails>
