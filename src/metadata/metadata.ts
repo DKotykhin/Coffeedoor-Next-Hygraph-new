@@ -28,7 +28,7 @@ export const mainPageMetaData: Metadata = {
         images: ["/F6MJ8zr/logo512.webp"],
     },
     icons: {
-        icon: '/icon_32.webp',
+        icon: '/favicon.png',
         apple: '/apple-icon.png',        
     },
 };
@@ -50,7 +50,7 @@ export const menuPageMetaData: Metadata = {
         images: ["/x7YYbNk/logo-1285x670.jpg"],
     },
     icons: {
-        icon: '/icon_32.webp',
+        icon: '/favicon.png',
         apple: '/apple-icon.png',        
     },
 };
@@ -59,7 +59,7 @@ export const thanksPageMetaData: Metadata = {
     title: "Дякуємо за замовлення",
     description: "Сторінка успішного замовлення в онлайн магазині",
     icons: {
-        icon: '/icon_32.webp',
+        icon: '/favicon.png',
         apple: '/apple-icon.png',        
     },
 };

@@ -64,7 +64,8 @@ const NavigationDrawer: React.FC = () => {
                             alt="logo Coffeedoor"
                             width={100}
                             height={100}
-                            priority={true}
+                            blurDataURL={"/webp/logo_192x192.webp"}
+                            placeholder={'blur'}
                         />
                     </MuiLink>
                     <Divider sx={{ mt: 2 }} />

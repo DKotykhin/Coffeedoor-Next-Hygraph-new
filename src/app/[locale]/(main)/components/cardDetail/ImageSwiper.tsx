@@ -36,22 +36,24 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ img, alt }) => {
                     {img.map((item, i) => (
                         <SwiperSlide key={i}>
                             <Image
-                                src={item.url}
-                                loader={() => item.url}
+                                src={item?.url || '/webp/wait_1.webp'}
                                 alt={alt}
                                 width={350}
                                 height={350}
-                                unoptimized={true}
+                                blurDataURL={item?.url || '/webp/wait_1.webp'}
+                                placeholder={'blur'}
                             />
                         </SwiperSlide>
                     ))}
                 </Swiper>
                 :
                 <Image
-                    src={"/wait_1.webp"}
+                    src={'/webp/wait_1.webp'}
                     alt={'wait for photo'}
                     width={350}
                     height={350}
+                    blurDataURL={'/webp/wait_1.webp'}
+                    placeholder={'blur'}
                 />
             }
         </Box>

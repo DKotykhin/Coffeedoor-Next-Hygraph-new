@@ -1,4 +1,4 @@
-import { ReactNode, Suspense } from "react";
+import { ReactNode } from "react";
 
 import { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
@@ -7,7 +7,6 @@ import { Roboto } from 'next/font/google';
 
 import { generalMetaData } from 'metadata/metadata';
 import Footer from 'components/footer/Footer';
-import Loading from "./loading";
 
 import './globals.scss';
 
@@ -42,9 +41,7 @@ export default async function RootLayout({
             <body className={roboto.className}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <main className="main">
-                        <Suspense fallback={<Loading />}>
-                            {children}
-                        </Suspense>
+                        {children}
                     </main>
                     <footer>
                         <Footer />

@@ -7,9 +7,9 @@ import InfoBlock from './components/infoBlock/InfoBlock';
 import NavigationDrawer from './components/navigationDrawer/NavigationDrawer';
 import AboutBlock from './components/aboutBlock/AboutBlock';
 import CatalogList from './components/catalog/CatalogList';
+import Spinner from 'components/spinner/Spinner';
 
 import { GetStoreList } from 'service/storeService';
-import Spinner from 'components/spinner/Spinner';
 
 export const metadata = mainPageMetaData;
 

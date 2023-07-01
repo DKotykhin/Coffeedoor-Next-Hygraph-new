@@ -29,7 +29,7 @@
     .card__buttons {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         .button__detail {
             @include button;
             padding: 8px;

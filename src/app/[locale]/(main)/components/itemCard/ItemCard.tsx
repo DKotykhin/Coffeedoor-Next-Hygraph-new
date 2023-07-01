@@ -60,15 +60,12 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
             <Card raised className={styles.card}>
                 <CardActionArea onClick={handleDetail}>
                     <Image
-                        src={cardImg?.url || `/wait_1.webp`}
-                        loader={() => cardImg.url}
+                        src={cardImg?.url || '/webp/wait_1.webp'}
                         alt={name}
                         width={350}
-                        height={350}
-                        unoptimized={true}
-                        blurDataURL={cardImg.url}
-                        placeholder={'blur'}
-                        priority={false}
+                        height={350}                        
+                        blurDataURL={cardImg?.url || '/webp/wait_1.webp'}
+                        placeholder={'blur'}                       
                     />
                 </CardActionArea>
                 <CardContent className={styles.card__content}>
