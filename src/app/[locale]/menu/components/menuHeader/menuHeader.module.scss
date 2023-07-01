@@ -1,10 +1,10 @@
 @import "constants/constants.scss";
 
 @mixin button {
-    display: inline;    
+    display: inline;
     border-radius: 15px;
     padding: 4px 16px;
-    margin: 0 15px;   
+    margin: 0 15px;
     cursor: pointer;
 }
 
@@ -12,6 +12,8 @@
     text-align: center;
     .menu__image {
         margin-top: 80px;
+        width: 90%;
+        height: auto;
         cursor: pointer;
     }
     .menu__title {
@@ -20,7 +22,7 @@
         font-weight: 700;
         @media (max-width: 768px) {
             font-size: 30px;
-        } 
+        }
     }
     .menu__subtitle {
         margin: 20px 0 30px 0;
@@ -32,14 +34,14 @@
     }
     .menu__langButton {
         @include button;
-        border: 1px solid $color_lightGrey;    
-        color: $color_lightGrey;    
+        border: 1px solid $color_lightGrey;
+        color: $color_lightGrey;
     }
-    
+
     .menu__langButtonActive {
         @include button;
         background-color: $color_mint;
-        border: 1px solid $color_mint;    
-        color: #fff;    
+        border: 1px solid $color_mint;
+        color: #fff;
     }
 }

@@ -27,12 +27,7 @@ const MenuHeader: React.FC = () => {
                 <Image
                     src={logo}
                     alt="logo Coffeedoor"
-                    style={{
-                        width: '90%',
-                        height: 'auto',
-                    }}
                     placeholder="blur"
-                    blurDataURL={"/webp/logo_700x191.webp"}
                     className={styles.menu__image}
                 />
             </Link>

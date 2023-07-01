@@ -25,6 +25,7 @@ import Image_31 from "/public/aboutImages/Coffeedoor_31.webp";
 import Image_32 from "/public/aboutImages/Coffeedoor_32.webp";
 import Image_33 from "/public/aboutImages/Coffeedoor_33.webp";
 import Image_34 from "/public/aboutImages/Coffeedoor_34.webp";
+import Image_35 from "/public/aboutImages/Coffeedoor_39.webp";
 
 export interface IPhotoData {
     id: number;
@@ -150,6 +151,14 @@ export const photoData: IPhotoData[] = [
     },
     {
         id: 15,
+        img: Image_35,
+        alt: "Coffee table",
+        bigSize: true,
+        portrait: false,
+        url: '/aboutImages/Coffeedoor_39.webp',
+    },
+    {
+        id: 16,
         img: Image_24,
         alt: "Coffee table",
         bigSize: false,
@@ -157,7 +166,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_24.webp',
     },
     {
-        id: 16,
+        id: 17,
         img: Image_25,
         alt: "Coffee table",
         bigSize: false,
@@ -165,7 +174,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_25.webp',
     },
     {
-        id: 17,
+        id: 18,
         img: Image_26,
         alt: "Coffee table",
         bigSize: false,
@@ -173,7 +182,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_26.webp',
     },
     {
-        id: 18,
+        id: 19,
         img: Image_27,
         alt: "Coffee table",
         bigSize: false,
@@ -181,7 +190,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_27.webp',
     },
     {
-        id: 19,
+        id: 20,
         img: Image_30,
         alt: "Coffee table",
         bigSize: false,
@@ -189,7 +198,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_30.webp',
     },
     {
-        id: 20,
+        id: 21,
         img: Image_31,
         alt: "Coffee table",
         bigSize: false,
@@ -197,7 +206,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_31.webp',
     },
     {
-        id: 21,
+        id: 22,
         img: Image_28,
         alt: "Coffee table",
         bigSize: false,
@@ -205,7 +214,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_28.webp',
     },
     {
-        id: 22,
+        id: 23,
         img: Image_29,
         alt: "Coffee table",
         bigSize: false,
@@ -213,7 +222,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_29.webp',
     },
     {
-        id: 23,
+        id: 24,
         img: Image_32,
         alt: "Coffee table",
         bigSize: false,
@@ -221,7 +230,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_32.webp',
     },
     {
-        id: 24,
+        id: 25,
         img: Image_33,
         alt: "Coffee table",
         bigSize: false,
@@ -229,7 +238,7 @@ export const photoData: IPhotoData[] = [
         url: '/aboutImages/Coffeedoor_33.webp',
     },
     {
-        id: 25,
+        id: 26,
         img: Image_34,
         alt: "Coffee table",
         bigSize: true,

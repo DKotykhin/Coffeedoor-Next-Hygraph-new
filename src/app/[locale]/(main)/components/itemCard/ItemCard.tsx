@@ -63,8 +63,8 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                         src={cardImg?.url || `/wait_1.webp`}
                         loader={() => cardImg.url}
                         alt={name}
-                        width={320}
-                        height={320}
+                        width={350}
+                        height={350}
                         unoptimized={true}
                         blurDataURL={cardImg.url}
                         placeholder={'blur'}

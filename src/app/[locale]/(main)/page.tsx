@@ -9,6 +9,7 @@ import AboutBlock from './components/aboutBlock/AboutBlock';
 import CatalogList from './components/catalog/CatalogList';
 
 import { GetStoreList } from 'service/storeService';
+import Spinner from 'components/spinner/Spinner';
 
 export const metadata = mainPageMetaData;
 
@@ -21,7 +22,7 @@ const Home = async () => {
             <FirstBlock />
             <NavigationDrawer />
             <InfoBlock />
-            <CatalogList data={data}/>
+            {data ? <CatalogList data={data} /> : <Spinner />}
             <AboutBlock />
         </>
     );

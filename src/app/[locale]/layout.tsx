@@ -1,3 +1,5 @@
+import { ReactNode, Suspense } from "react";
+
 import { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
@@ -5,6 +7,7 @@ import { Roboto } from 'next/font/google';
 
 import { generalMetaData } from 'metadata/metadata';
 import Footer from 'components/footer/Footer';
+import Loading from "./loading";
 
 import './globals.scss';
 
@@ -24,8 +27,8 @@ export const metadata: Metadata = generalMetaData;
 export default async function RootLayout({
     children, params: { locale }
 }: {
-    children: React.ReactNode,
-    params: any,
+    children: ReactNode,
+    params: { locale: string },
 }) {
     let messages;
     try {
@@ -39,7 +42,9 @@ export default async function RootLayout({
             <body className={roboto.className}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <main className="main">
-                        {children}
+                        <Suspense fallback={<Loading />}>
+                            {children}
+                        </Suspense>
                     </main>
                     <footer>
                         <Footer />
@@ -48,4 +53,4 @@ export default async function RootLayout({
             </body>
         </html>
     );
-}
+};
