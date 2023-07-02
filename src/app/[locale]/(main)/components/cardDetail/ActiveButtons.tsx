@@ -6,8 +6,7 @@ import { Button, Typography } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-import { useAppDispatch } from "store/hook";
-import { basketAddItems } from "store/basketSlice";
+import { useBasketStore } from "../../store";
 
 import { IBody, ICard } from "types/storeTypes";
 import { IBasket } from "types/basketTypes";
@@ -25,8 +24,9 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
     const { title, name } = body;
 
     const [quantity, setQuantity] = useState<number>(1);
+    
     const t = useTranslations("card");
-    const dispatch = useAppDispatch();
+    const addItem = useBasketStore(state => state.addItem);
 
     const handleDecrement = () => {
         if (quantity > 1) {
@@ -48,7 +48,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
             id
         };
         // console.log(fullData);
-        dispatch(basketAddItems(fullData));
+        addItem(fullData);
     };
 
     return (

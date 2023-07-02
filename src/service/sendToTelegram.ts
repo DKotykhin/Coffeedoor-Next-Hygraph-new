@@ -12,7 +12,7 @@ export default async function sendToTelegram(data: ITelegramData) {
         }
         const URL = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
 
-        const formData: IFormData = data.formdata;
+        const formData: IFormData = data.formData;
         
         let message = `<b>--- Заявка з сайту ---</b>\n`;        
         message += `<b>Відправник: </b>${formData.name}\n`;
@@ -24,7 +24,7 @@ export default async function sendToTelegram(data: ITelegramData) {
         let itemSum = 0;
         let orderQuantity = 0;
 
-        data.basketdata.forEach((item: IBasket) => {
+        data.basketData.forEach((item: IBasket) => {
             message += `${item.title} ${item.name}, ${
                 item.weight ? `${item.weight}г,` : ""
             } ${item.quantity} x ${item.price} грн\n`;

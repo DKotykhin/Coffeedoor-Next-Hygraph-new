@@ -1,16 +1,14 @@
 "use client";
 
 import React from "react";
-import { Provider } from "react-redux";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { Box } from '@mui/material';
 
 import CardList from "./CardList";
-import store from "store/store";
+import Basket from "../basket/Basket";
 
 import { GroupList, ICatalogList, IFilter } from "types/storeTypes";
-import Basket from "../basket/Basket";
 
 export interface IGroupData {
     group: GroupList,
@@ -67,19 +65,17 @@ const theme = createTheme({
 const CatalogList: React.FC<{ data: ICatalogList }> = ({ data }) => {
 
     return (
-        <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                {GroupData.map(item => (
-                    <Box key={item.group}>
-                        <CardList
-                            data={data[item.group].edges}
-                            item={item}
-                        />
-                    </Box>
-                ))}
-                <Basket />
-            </ThemeProvider>
-        </Provider>
+        <ThemeProvider theme={theme}>
+            {GroupData.map(item => (
+                <Box key={item.group}>
+                    <CardList
+                        data={data[item.group].edges}
+                        item={item}
+                    />
+                </Box>
+            ))}
+            <Basket />
+        </ThemeProvider>
     );
 };
 

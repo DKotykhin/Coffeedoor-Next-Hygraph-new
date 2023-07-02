@@ -1,11 +1,10 @@
 import React from "react";
-import { useAppSelector } from "store/hook";
 
 import { Box, Badge } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 
-import { selectBasket } from "store/selectors";
+import { useBasketStore } from "../../store";
 
 import styles from "./basketIcon.module.scss";
 
@@ -23,14 +22,15 @@ interface IBasketIcon {
 }
 
 const BasketIcon: React.FC<IBasketIcon> = ({ handleOpen }) => {
-    const { basketdata } = useAppSelector(selectBasket);
 
-    const totalQuantity = basketdata.reduce(
+    const basketData = useBasketStore(state => state.basketData);
+
+    const totalQuantity = basketData.reduce(
         (sum: number, currentValue: { price: number; quantity: number; }) => sum + currentValue.quantity,
         0
     );
 
-    return basketdata.length > 0 ? (
+    return basketData.length > 0 ? (
         <Box className={styles.basketIcon} onClick={handleOpen}>
             <StyledBadge badgeContent={totalQuantity}>
                 <ShoppingBasketOutlinedIcon

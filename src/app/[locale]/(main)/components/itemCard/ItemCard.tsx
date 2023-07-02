@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { useTranslations } from 'next-intl';
 
-import { Typography, Button, Box, CardActionArea } from "@mui/material";
+import { Typography, Button, Box, CardActions } from "@mui/material";
 import { Card, CardContent } from "@mui/material";
 
 import DetailedCard from "../cardDetail/DetailedCard";
 
-import { useAppDispatch } from "store/hook";
-import { basketAddItems } from "store/basketSlice";
+import { useBasketStore } from "../../store";
+import { Languages } from "hooks/useLang";
 
 import { IBody, ICard } from "types/storeTypes";
 import { IBasket } from "types/basketTypes";
@@ -26,13 +26,13 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
 
     let body: IBody;
     switch (lang) {
-        case "uk":
+        case Languages.uk:
             body = bodyUa;
             break;
-        case "ru":
+        case Languages.ru:
             body = bodyRu;
             break;
-        case "en":
+        case Languages.en:
             body = bodyEn;
             break;
         default:
@@ -42,12 +42,13 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
 
     const [openModal, setOpenModal] = useState(false);
     const t = useTranslations("card");
-    const dispatch = useAppDispatch();
+
+    const addItem = useBasketStore(state => state.addItem);
 
     const handleDetail = () => setOpenModal(true);
     const closeModal = () => setOpenModal(false);
 
-    const basketClick = (data: IBasket) => dispatch(basketAddItems(data));
+    const basketClick = (data: IBasket) => addItem(data);
 
     return (
         <>
@@ -58,7 +59,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                 closeModal={closeModal}
             />
             <Card raised className={styles.card}>
-                <CardActionArea onClick={handleDetail}>
+                <Box onClick={handleDetail}>
                     <Image
                         src={cardImg?.url || '/webp/wait_1.webp'}
                         alt={name}
@@ -67,7 +68,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                         blurDataURL={cardImg?.url || '/webp/wait_1.webp'}
                         placeholder={'blur'}                       
                     />
-                </CardActionArea>
+                </Box>
                 <CardContent className={styles.card__content}>
                     <Typography gutterBottom variant="h5" component="div">
                         {title} {name}
@@ -102,7 +103,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                         }
                     </Box>
                 </CardContent>
-                <Box className={styles.card__buttons}>
+                <CardActions className={styles.card__buttons}>
                     <Button
                         className={styles.button__detail}
                         onClick={handleDetail}
@@ -125,7 +126,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                     >
                         {t("button_2")}
                     </Button>
-                </Box>
+                </CardActions>
             </Card>
         </>
     );

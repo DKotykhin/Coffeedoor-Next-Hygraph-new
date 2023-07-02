@@ -1,7 +1,7 @@
-import React from "react";
-import { useAppDispatch, useAppSelector } from "store/hook";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
+import Image from "next/image";
 
 import { Backdrop, Box, Modal, Typography, Divider, Fade } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -10,62 +10,54 @@ import CloseIcon from "@mui/icons-material/Close";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 
-import {
-    basketRemoveItems,
-    basketAddQuantity,
-    basketRemoveQuantity,
-    basketSetEmpty,
-} from "store/basketSlice";
-import { selectBasket } from "store/selectors";
-
 import BasketIcon from "./BasketIcon";
 import BasketForm from "./BasketForm";
+import sendToTelegram from "service/sendToTelegram";
+import { useBasketStore } from "../../store";
+
 import { IBasket, IFormData, ITelegramData } from "types/basketTypes";
 
 import styles from "./Basket.module.scss";
-import sendToTelegram from "service/sendToTelegram";
-import Image from "next/image";
 
 const Basket: React.FC = () => {
-    const [open, setOpen] = React.useState(false);
+    const [openModal, setOpenModal] = useState(false);
+    const [loading, setLoading] = useState(false);
+
     const router = useRouter();
     const t = useTranslations("basket");
     const matches = useMediaQuery('(min-width:801px)');
 
-    const { basketdata } = useAppSelector(selectBasket);
-    const dispatch = useAppDispatch();
+    const { basketData, removeItem, quantityDec, quantityInc, setEmpty } = useBasketStore();
 
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpenModal(true);
+    const handleClose = () => setOpenModal(false);
 
-    const handleRemove = (basketItem: string): void => {
-        dispatch(basketRemoveItems(basketItem));
-    };
-    const handleDecrement = (basketItem: string): void => {
-        dispatch(basketRemoveQuantity(basketItem));
-    };
-    const handleIncrement = (basketItem: string): void => {
-        dispatch(basketAddQuantity(basketItem));
-    };
+    const handleRemove = (id: string): void => removeItem(id);
+    const handleDecrement = (id: string): void => quantityDec(id);
+    const handleIncrement = (id: string): void => quantityInc(id);
 
-    const onSubmitForm = async (formdata: IFormData): Promise<void> => {
+    const onSubmitForm = async (formData: IFormData): Promise<void> => {
         const telegramData: ITelegramData = {
-            formdata,
-            basketdata
+            formData,
+            basketData,
         };
-        const res = await sendToTelegram(telegramData);
-        if (res?.ok) {
-            dispatch(basketSetEmpty());
-            setOpen(false);
+        setLoading(true);
+        await sendToTelegram(telegramData)
+        .then(() => {
+            setEmpty();
             router.push("/thanks");
-        }
+        })
+        .finally(() => {
+            setOpenModal(false);
+            setLoading(false);
+        });       
     };
 
     return (
         <>
             <BasketIcon handleOpen={handleOpen} />
             <Modal
-                open={open}
+                open={openModal}
                 onClose={handleClose}
                 closeAfterTransition
                 slots={{ backdrop: Backdrop }}
@@ -75,7 +67,7 @@ const Basket: React.FC = () => {
                     },
                 }}
             >
-                <Fade in={open}>
+                <Fade in={openModal}>
                     <Box className={styles.basketModal}>
                         <CloseIcon
                             className={styles.basketModal__closeBasket}
@@ -88,8 +80,8 @@ const Basket: React.FC = () => {
                             {t("title")}
                         </Typography>
                         <Divider />
-                        {basketdata.length > 0 ? (
-                            basketdata.map((item: IBasket, i: number) => (
+                        {basketData.length > 0 ? (
+                            basketData.map((item: IBasket, i: number) => (
                                 <Box key={i} className={styles.basketModal__box}>
                                     <Box className={styles.basketModal__itemBlock}>
                                         {matches &&
@@ -98,6 +90,8 @@ const Basket: React.FC = () => {
                                                 alt={item.name}
                                                 width={70}
                                                 height={70}
+                                                blurDataURL={item.image || '/webp/wait_1.webp'}
+                                                placeholder={'blur'}
                                             />
                                         }
                                         <Box sx={{ flexGrow: 1 }}>
@@ -147,7 +141,7 @@ const Basket: React.FC = () => {
                         )}
                         <Typography className={styles.basketModal__total}>
                             {t("total")}
-                            {basketdata.reduce(
+                            {basketData.reduce(
                                 (sum: number, currentValue: { price: number; quantity: number; }) =>
                                     sum +
                                     +currentValue.price * currentValue.quantity,
@@ -155,7 +149,7 @@ const Basket: React.FC = () => {
                             )}
                             {t("currency")}
                         </Typography>
-                        <BasketForm onSubmit={onSubmitForm} />
+                        <BasketForm onSubmit={onSubmitForm} loading={loading}/>
                     </Box>
                 </Fade>
             </Modal>

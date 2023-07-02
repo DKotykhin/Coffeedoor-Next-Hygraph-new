@@ -2,19 +2,20 @@ import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Swiper, SwiperSlide } from "swiper/react";
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { Box, Container, Typography } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 import { IGroupData } from './CatalogList';
 import ItemCard from '../itemCard/ItemCard';
-import { useLang } from 'hooks/useLang';
+import FilterItems from '../filters/FilterItems';
+import { Languages, useLang } from 'hooks/useLang';
 
 import { ICard } from 'types/storeTypes';
 
 import "swiper/css";
 import styles from './cardList.module.scss';
-import FilterItems from '../filters/FilterItems';
 
 interface ICardList {
     data: ICard[],
@@ -33,63 +34,75 @@ const CardList: React.FC<ICardList> = ({ data, item }) => {
 
     const onSelectSort = (sort: string) => {
         if (sort) {
-            if (lang === 'uk') {
-                setList(data.filter(item => item.node.bodyUa.sort?.value === sort));
+            switch (lang) {
+                case Languages.uk:
+                    setList(data.filter(item => item.node.bodyUa.sort?.value === sort));
+                    break;
+                case Languages.ru:
+                    setList(data.filter(item => item.node.bodyRu.sort?.value === sort));
+                    break;
+                case Languages.en:
+                    setList(data.filter(item => item.node.bodyEn.sort?.value === sort));
+                    break;
+                default: setList(data.filter(item => item.node.bodyUa.sort?.value === sort));
             }
-            if (lang === 'ru') {
-                setList(data.filter(item => item.node.bodyRu.sort?.value === sort));
-            }
-            if (lang === 'en') {
-                setList(data.filter(item => item.node.bodyEn.sort?.value === sort));
-            }
-        }
+        } else setList(data);
     };
 
     return (
         <Container id={group} maxWidth="xl" className={styles.cardList} >
-                <Typography className={styles.cardList__title}>
-                    {t(title)}
-                </Typography>
-                <Typography className={styles.cardList__subtitle}>
-                    {t(subtitle)}
-                </Typography>
-                {filterArray && (
-                    <FilterItems
-                        onSelect={onSelectSort}
-                        quantity={list ? list.length : null}
-                        filterArray={filterArray}
-                    />
-                )}
-                {matches ?
-                    <Box className={styles.cardList__grid} >
-                        {list?.map((item) =>
-                            <ItemCard key={item.node.id} item={item} lang={lang} />)}
+            <Typography className={styles.cardList__title}>
+                {t(title)}
+            </Typography>
+            <Typography className={styles.cardList__subtitle}>
+                {t(subtitle)}
+            </Typography>
+            {filterArray && (
+                <FilterItems
+                    onSelect={onSelectSort}
+                    quantity={list ? list.length : null}
+                    filterArray={filterArray}
+                />
+            )}
+            {matches ?
+                <Box className={styles.cardList__grid} >
+                    {list?.map((item) =>
+                        <ItemCard key={item.node.id} item={item} lang={lang} />)}
 
-                    </Box>
-                    :
-                    <Swiper
-                        slidesPerView={1.1}
-                        spaceBetween={15}
-                        breakpoints={{
-                            600: {
-                                slidesPerView: 1.5,
-                                threshold: 20
-                            },
-                            850: {
-                                slidesPerView: 2.2,
-                                threshold: 20
-                            },
-                        }}
-                        navigation={true}
-                        grabCursor={true}
-                    >
+                </Box>
+                :
+                <Swiper
+                    slidesPerView={1.1}
+                    spaceBetween={15}
+                    breakpoints={{
+                        600: {
+                            slidesPerView: 1.5,
+                            threshold: 20
+                        },
+                        850: {
+                            slidesPerView: 2.2,
+                            threshold: 20
+                        },
+                    }}
+                    navigation={true}
+                    grabCursor={true}
+                >
+                    <AnimatePresence initial={false}>
                         {list?.map((item) => (
                             <SwiperSlide key={item.node.id}>
-                                <ItemCard item={item} lang={lang} />
+                                <motion.section
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    <ItemCard item={item} lang={lang} />
+                                </motion.section>
                             </SwiperSlide>
                         ))}
-                    </Swiper>
-                }
+                    </AnimatePresence>
+                </Swiper>
+            }
         </Container>
     );
 };
