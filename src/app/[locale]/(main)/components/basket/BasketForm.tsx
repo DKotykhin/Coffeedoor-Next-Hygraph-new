@@ -14,9 +14,10 @@ import styles from "./Basketform.module.scss";
 interface IBasketForm {
     onSubmit: (data: IFormData) => void;
     loading: boolean;
+    error: boolean;
 }
 
-const BasketForm: React.FC<IBasketForm> = ({ onSubmit, loading }) => {
+const BasketForm: React.FC<IBasketForm> = ({ onSubmit, loading, error }) => {
 
     const t = useTranslations("basket");
 
@@ -119,6 +120,11 @@ const BasketForm: React.FC<IBasketForm> = ({ onSubmit, loading }) => {
             >
                 {loading ? t("send") : t("submit")}
             </Button>
+            {error &&
+                <Typography color='error' sx={{ textAlign: 'center', mt: 1 }}>
+                    {t("error")}
+                </Typography>
+            }
         </Box>
     );
 };

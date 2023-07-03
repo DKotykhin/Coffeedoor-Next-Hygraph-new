@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { useTranslations } from 'next-intl';
 import Image from "next/image";
 
@@ -22,6 +22,7 @@ import styles from "./Basket.module.scss";
 const Basket: React.FC = () => {
     const [openModal, setOpenModal] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(false);
 
     const router = useRouter();
     const t = useTranslations("basket");
@@ -42,15 +43,14 @@ const Basket: React.FC = () => {
             basketData,
         };
         setLoading(true);
-        await sendToTelegram(telegramData)
-        .then(() => {
+        setError(false);
+        const result = await sendToTelegram(telegramData);
+        if (result.ok) {
             setEmpty();
             router.push("/thanks");
-        })
-        .finally(() => {
             setOpenModal(false);
-            setLoading(false);
-        });       
+        } else setError(true);
+        setLoading(false);
     };
 
     return (
@@ -149,7 +149,7 @@ const Basket: React.FC = () => {
                             )}
                             {t("currency")}
                         </Typography>
-                        <BasketForm onSubmit={onSubmitForm} loading={loading}/>
+                        <BasketForm onSubmit={onSubmitForm} loading={loading} error={error} />
                     </Box>
                 </Fade>
             </Modal>

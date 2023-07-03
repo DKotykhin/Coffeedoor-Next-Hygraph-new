@@ -4,5 +4,11 @@ import Error from 'components/error/Error';
 
 export default function GlobalError() {
 
-    return <Error />;
+    return (
+        <html>
+            <body>
+                <Error />
+            </body>
+        </html>
+    );
 };

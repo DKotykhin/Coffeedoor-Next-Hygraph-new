@@ -96,6 +96,10 @@
         "var_2": "delivery according to the carrier's tariffs",
         "comment": "Delivery address or comment",
         "submit": "submit",
-        "send": "Send..."
+        "send": "Send...",
+        "error": "Something get wrong... Try again"
+    },
+    "error": {
+        "notFound": "Page not found..."
     }
 }

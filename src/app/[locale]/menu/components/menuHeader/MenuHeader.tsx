@@ -9,10 +9,12 @@ import { useRouter } from 'next/navigation';
 
 import { Box, Container, Typography } from '@mui/material';
 
-import styles from './menuHeader.module.scss';
 import { langButtons, useLang } from "hooks/useLang";
 import ReturnButton from "components/returnButton/ReturnButton";
+
 import logo from '/public/webp/logo_700x191.webp';
+
+import styles from './menuHeader.module.scss';
 
 const MenuHeader: React.FC = () => {
     const t = useTranslations("menu");
