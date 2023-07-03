@@ -38,9 +38,9 @@ To run this project, you will need to add the following environment variables to
 
 ## Deploy on Vercel
 
-  [https://coffeedoor-next-hygraph.vercel.app](https://coffeedoor-next-hygraph.vercel.app)
+  [https://coffeedoor-next-hygraph-new.vercel.app](https://coffeedoor-next-hygraph-new.vercel.app)
 
-  [https://luckycat.pp.ua](https://www.luckycat.pp.ua/)
+  [https://coffeedoor.space](https://coffeedoor.space/)
 
 ## Run Locally
 

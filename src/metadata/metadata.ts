@@ -21,7 +21,7 @@ export const mainPageMetaData: Metadata = {
     metadataBase: new URL("https://i.ibb.co"),
     openGraph: {
         type: "website",
-        url: "https://www.luckycat.pp.ua",
+        url: "https://www.coffeedoor.space",
         title: "CoffeeDoor - кав'ярня та магазин свіжообсмаженої кави",
         description:
             "CoffeeDOOR – це кавовий бренд, який по'єднує в собі свіжообсмажену каву рівня Speciality, кращі кавові технології, стильний дизайнерський інтер'єр, швидкий і дружній сервіс",
@@ -43,7 +43,7 @@ export const menuPageMetaData: Metadata = {
     metadataBase: new URL("https://i.ibb.co"),
     openGraph: {
         type: "website",
-        url: "https://www.luckycat.pp.ua/menu",
+        url: "https://www.coffeedoor.space/menu",
         title: "Меню кав'ярні",
         description:
             "Пропонуємо напої зі свіжообсмаженої кави та чаї за власними рецептами",
