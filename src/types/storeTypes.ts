@@ -1,9 +1,9 @@
 export enum GroupList {
-    "coffee" = "coffeeList",
-    "tea" = "teaList",
-    "jam" = "jamList",
-    "mills" = "millsList",
-    "accessories" = "accessoriesList",
+    "coffee" = "coffee",
+    "tea" = "tea",
+    "jam" = "jam",
+    "mills" = "mills",
+    "accessories" = "accessories",
 }
 export interface ICatalogList {
     [GroupList.coffee]: {

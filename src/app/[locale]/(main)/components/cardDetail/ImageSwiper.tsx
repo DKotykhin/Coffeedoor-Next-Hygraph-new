@@ -40,6 +40,10 @@ const ImageSwiper: React.FC<IImageSwiper> = ({ img, alt }) => {
                                 alt={alt}
                                 width={350}
                                 height={350}
+                                style={{
+                                    width: '100%',
+                                    height: 'auto',
+                                  }}
                                 blurDataURL={item?.url || '/webp/wait_1.webp'}
                                 placeholder={'blur'}
                             />

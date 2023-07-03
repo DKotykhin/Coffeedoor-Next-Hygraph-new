@@ -6,13 +6,20 @@ A brief description of what this project does and who it's for
 ![Logo](https://i.ibb.co/VxVb9gn/logo-700x191.webp)
 
 
+## Technologies
+
+-   Next JS 13, React, Typescript, Zustand, GraphQL, Material UI, SCSS, Swiper, React Hook Form, Framer Motion, next-intl, Yup
+
 ## Features
 
-- using Next JS for SSR
-- React, Typescript
-- MUI, SCSS
+- Online coffee, tea and assessories store for coffee bar & shop
+- using latest Next JS 13 for SSR
+- latest routing architecture with App folder
 - Hygraph CMS for content placing
-- GraphQL
+- GraphQL API
+- Coffee bar menu page
+- Store basket with Telegram notification
+- React Hook Form and Yup for input validation
 - Three languages: ua, en, ru
 - Google Analitycs
 - Mobile friendly

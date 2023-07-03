@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import ReactGA from "react-ga4";
 
 import { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
@@ -22,6 +23,9 @@ export function generateStaticParams() {
 }
 
 export const metadata: Metadata = generalMetaData;
+
+const GOOGLE_DATA_ID: string = process.env.NEXT_PUBLIC_GOOGLE_DATA_ID || "";
+ReactGA.initialize(GOOGLE_DATA_ID);
 
 export default async function RootLayout({
     children, params: { locale }

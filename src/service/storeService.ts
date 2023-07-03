@@ -24,7 +24,7 @@ const query = `
         }
     }
     query GetAllList {
-        coffeeList: coffeeListsConnection(
+        coffee: coffeeListsConnection(
             orderBy: position_ASC
             where: { hide_not: true }
             first: 20
@@ -55,7 +55,7 @@ const query = `
                 }
             }
         }
-        teaList: teaListsConnection(
+        tea: teaListsConnection(
             orderBy: position_ASC
             where: { hide_not: true }
             first: 25
@@ -98,7 +98,7 @@ const query = `
                 }
             }
         }
-        jamList: jamListsConnection(
+        jam: jamListsConnection(
             orderBy: position_ASC
             where: { hide_not: true }
         ) {
@@ -128,7 +128,7 @@ const query = `
                 }
             }
         }
-        millsList: millsListsConnection(
+        mills: millsListsConnection(
             orderBy: position_ASC
             where: { hide_not: true }
         ) {
@@ -161,7 +161,7 @@ const query = `
                 }
             }
         }
-        accessoriesList: accessoriesListsConnection(
+        accessories: accessoriesListsConnection(
             orderBy: position_ASC
             where: { hide_not: true }
         ) {
