@@ -10,6 +10,7 @@ import CatalogList from './components/catalog/CatalogList';
 import Spinner from 'components/spinner/Spinner';
 
 import { GetStoreList } from 'service/storeService';
+import ScrollButton from 'components/scrollButton/ScrollButton';
 
 export const metadata = mainPageMetaData;
 
@@ -24,6 +25,7 @@ const Home = async () => {
             <InfoBlock />
             {data ? <CatalogList data={data} /> : <Spinner />}
             <AboutBlock />
+            <ScrollButton />
         </>
     );
 };

@@ -59,7 +59,7 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                 closeModal={closeModal}
             />
             <Card raised className={styles.card}>
-                <Box onClick={handleDetail}>
+                <Box onClick={handleDetail} sx={{ cursor: 'pointer' }}>
                     <Image
                         src={cardImg?.url || '/webp/wait_1.webp'}
                         alt={name}
@@ -68,9 +68,9 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                         style={{
                             width: '100%',
                             height: 'auto',
-                          }}                       
+                        }}
                         blurDataURL={cardImg?.url || '/webp/wait_1.webp'}
-                        placeholder={'blur'}                       
+                        placeholder={'blur'}
                     />
                 </Box>
                 <CardContent className={styles.card__content}>

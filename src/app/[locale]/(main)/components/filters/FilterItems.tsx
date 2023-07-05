@@ -5,6 +5,7 @@ import { Box, Stack, Chip, Badge, Typography } from "@mui/material";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
 
 import { IFilter } from "types/storeTypes";
+import { motion } from "framer-motion";
 
 interface IFilterItems {
     onSelect: (arg0: string) => void;
@@ -29,7 +30,7 @@ const FilterItems: React.FC<IFilterItems> = ({ onSelect, quantity, filterArray }
     };
 
     return (
-        <Box>
+        <>
             <Box sx={{ display: "flex" }}>
                 <FilterAltOutlinedIcon />
                 <Typography
@@ -39,11 +40,18 @@ const FilterItems: React.FC<IFilterItems> = ({ onSelect, quantity, filterArray }
                     {t("filters")}
                 </Typography>
             </Box>
-            {showSelector && (
+            <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={showSelector
+                    ? { opacity: 1, height: 'auto' }
+                    : { opacity: 0, height: 0 }
+                }
+                transition={{ duration: 0.5 }}
+            >
                 <Stack
                     direction="row"
                     spacing={3}
-                    sx={{ display: "flex", flexWrap: "wrap", mt: 3 }}
+                    sx={{ display: "flex", flexWrap: "wrap", pt: 3 }}
                 >
                     {filterArray?.map((item) => (
                         <Badge
@@ -67,8 +75,8 @@ const FilterItems: React.FC<IFilterItems> = ({ onSelect, quantity, filterArray }
                         </Badge>
                     ))}
                 </Stack>
-            )}
-        </Box>
+            </motion.div>
+        </>
     );
 };
 

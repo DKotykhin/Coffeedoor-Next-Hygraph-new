@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import { Box, Container, Typography } from "@mui/material";
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -58,11 +58,11 @@ const CardList: React.FC<ICardList> = ({ data, item }) => {
                 {t(subtitle)}
             </Typography>
             {filterArray && (
-                <FilterItems
-                    onSelect={onSelectSort}
-                    quantity={list ? list.length : null}
-                    filterArray={filterArray}
-                />
+                    <FilterItems
+                        onSelect={onSelectSort}
+                        quantity={list ? list.length : null}
+                        filterArray={filterArray}
+                    />
             )}
             {matches ?
                 <Box className={styles.cardList__grid} >
@@ -87,20 +87,17 @@ const CardList: React.FC<ICardList> = ({ data, item }) => {
                     navigation={true}
                     grabCursor={true}
                 >
-                    <AnimatePresence initial={false}>
                         {list?.map((item) => (
                             <SwiperSlide key={item.node.id}>
                                 <motion.section
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.4 }}
+                                    transition={{ duration: 0.6 }}
                                 >
                                     <ItemCard item={item} lang={lang} />
                                 </motion.section>
                             </SwiperSlide>
                         ))}
-                    </AnimatePresence>
                 </Swiper>
             }
         </Container>

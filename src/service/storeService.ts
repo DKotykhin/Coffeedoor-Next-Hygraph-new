@@ -204,7 +204,7 @@ export const GetStoreList = async (): Promise<ICatalogList> => {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ query }),
-        next: { revalidate: 60 },
+        next: { revalidate: 600 },
     }).then((res) => res.json());
 
     return data;

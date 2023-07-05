@@ -50,6 +50,13 @@ const NavigationDrawer: React.FC = () => {
         setState(open);
     };
 
+    const handleClick = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
     return (
         <Box className={styles.drawer}>
             <MenuIcon
@@ -58,16 +65,15 @@ const NavigationDrawer: React.FC = () => {
             />
             <Drawer anchor="right" open={state} onClick={toggleDrawer(false)}>
                 <Box className={styles.drawer__box}>
-                    <MuiLink href="#first">
-                        <Image
-                            src={"/webp/logo_192x192.webp"}
-                            alt="logo Coffeedoor"
-                            width={100}
-                            height={100}
-                            blurDataURL={"/webp/logo_192x192.webp"}
-                            placeholder={'blur'}
-                        />
-                    </MuiLink>
+                    <Image
+                        src={"/webp/logo_192x192.webp"}
+                        alt="logo Coffeedoor"
+                        width={100}
+                        height={100}
+                        blurDataURL={"/webp/logo_192x192.webp"}
+                        placeholder={'blur'}
+                        onClick={handleClick}
+                    />
                     <Divider sx={{ mt: 2 }} />
                     <List className={styles.drawer__items}>
                         {catalogTitleList.map((text) => (
