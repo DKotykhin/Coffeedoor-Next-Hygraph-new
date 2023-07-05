@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import Link from "next/link";
 import Image from "next/image";
 
-import { List, ListItem } from "@mui/material";
+import { Button, List, ListItem } from "@mui/material";
 import { Box, Drawer, Divider, Link as MuiLink } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
@@ -111,13 +111,13 @@ const NavigationDrawer: React.FC = () => {
                     <Divider />
                     <Box className={styles.lang__box}>
                         {langButtons.map(item => (
-                            <Box
+                            <Button
                                 key={item.key}
                                 onClick={() => router.push(`/${item.key}`)}
                                 className={(lang === item.key) ? styles.lang__button_active : styles.lang__button}
                             >
                                 {item.label}
-                            </Box>
+                            </Button>
                         ))}
                     </Box>
                 </Box>

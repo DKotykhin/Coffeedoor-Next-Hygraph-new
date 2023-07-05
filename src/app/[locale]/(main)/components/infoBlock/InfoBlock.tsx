@@ -4,13 +4,7 @@ import React from "react";
 
 import { useTranslations } from 'next-intl';
 
-import {
-    Container,
-    Typography,
-    ListItem,
-    ListItemText,
-    Link,
-} from "@mui/material";
+import { Container, Typography, Link, Box } from "@mui/material";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import LocalShippingOutlinedIcon from "@mui/icons-material/LocalShippingOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -30,9 +24,9 @@ const InfoBlock: React.FC = () => {
             <Typography className={styles.infoblock__subtitle} component="h2">
                 {t("subtitle")}
             </Typography>
-            <ListItem>
+            <Box className={styles.infoblock__items}>
                 <AccessTimeIcon className={styles.infoblock__icon} />
-                <ListItemText className={styles.infoblock__items}>
+                <Box>
                     <Typography className={styles.infoblock__item_1}>
                         {t("openTimesTitle")}
                     </Typography>
@@ -42,22 +36,22 @@ const InfoBlock: React.FC = () => {
                     <Typography className={styles.infoblock__item_2}>
                         {t("openTimes_2")}
                     </Typography>
-                </ListItemText>
-            </ListItem>
-            <ListItem>
+                </Box>
+            </Box>
+            <Box className={styles.infoblock__items}>
                 <LocalShippingOutlinedIcon className={styles.infoblock__icon} />
-                <ListItemText className={styles.infoblock__items}>
+                <Box>
                     <Typography className={styles.infoblock__item_1}>
                         {t("deliveryTitle")}
                     </Typography>
                     <Typography className={styles.infoblock__item_2}>
                         {t("deliveryOptions")}
                     </Typography>
-                </ListItemText>
-            </ListItem>
-            <ListItem>
+                </Box>
+            </Box>
+            <Box className={styles.infoblock__items}>
                 <LocationOnOutlinedIcon className={styles.infoblock__icon} />
-                <ListItemText className={styles.infoblock__items}>
+                <Box>
                     <Typography className={styles.infoblock__item_1}>
                         {t("contactsTitle")}
                     </Typography>
@@ -71,8 +65,8 @@ const InfoBlock: React.FC = () => {
                         {t("phone")}
                         {Phone['phone']}
                     </Link>
-                </ListItemText>
-            </ListItem>
+                </Box>
+            </Box>
         </Container>
     );
 };

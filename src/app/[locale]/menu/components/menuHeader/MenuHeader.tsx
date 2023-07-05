@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-import { Box, Container, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
 
 import { langButtons, useLang } from "hooks/useLang";
 import ReturnButton from "components/returnButton/ReturnButton";
@@ -40,13 +40,13 @@ const MenuHeader: React.FC = () => {
                 {t("subtitle")}
             </Typography>
             {langButtons.map(item => (
-                <Box
+                <Button
                     key={item.key}
                     onClick={() => router.push(`/${item.key}/menu`)}
                     className={(lang === item.key) ? styles.menu__langButtonActive : styles.menu__langButton}
                 >
                     {item.label}
-                </Box>
+                </Button>
             ))}
             <ReturnButton />
         </Container>

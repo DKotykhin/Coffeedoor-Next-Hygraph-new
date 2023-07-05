@@ -6,7 +6,7 @@ import { useTranslations } from 'next-intl';
 import { Box } from "@mui/system";
 import { Typography, Link } from "@mui/material";
 
-import { SocialMedias, Phone, Email } from "./footerData";
+import { SocialMedia, Phone, Email } from "./footerData";
 
 import styles from "./footer.module.scss";
 
@@ -18,9 +18,9 @@ const Footer: React.FC = () => {
         <Box id="footer" className={styles.footer_block}>
             <Box>
                 {
-                    SocialMedias.map(socialMedia => (
-                        <Link href={socialMedia.href} key={socialMedia.id} target='_blank'>
-                            <socialMedia.icon className={styles.footer_icon} />
+                    SocialMedia.map(sm => (
+                        <Link href={sm.href} key={sm.id} target='_blank' aria-label={sm.ariaLabel}>
+                            <sm.icon className={styles.footer_icon} />
                         </Link>
                     ))
                 }
