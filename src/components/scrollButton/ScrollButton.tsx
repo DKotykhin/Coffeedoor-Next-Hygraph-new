@@ -28,14 +28,14 @@ const ScrollButton = () => {
     };
 
     return y > 1000 ? (
-        <motion.div
+        <motion.button
             className={styles.scrollButton}
             onClick={handleClick}
             animate={controls}
             initial={{ opacity: 0 }}
         >
             <KeyboardArrowUpIcon />
-        </motion.div>
+        </motion.button>
     ) : null;
 };
 

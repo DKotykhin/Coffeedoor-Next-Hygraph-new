@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTranslations } from 'next-intl';
 
-import { Button, Typography } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -24,7 +24,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
     const { title, name } = body;
 
     const [quantity, setQuantity] = useState<number>(1);
-    
+
     const t = useTranslations("card");
     const addItem = useBasketStore(state => state.addItem);
 
@@ -52,7 +52,7 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
     };
 
     return (
-        <Typography className={styles.buttons}>
+        <Box className={styles.buttons}>
             <RemoveCircleOutlineIcon
                 className={styles.buttons__remove}
                 onClick={handleDecrement}
@@ -62,10 +62,13 @@ const ActiveButtons: React.FC<IActiveButtons> = ({ item, body, closeModal }) => 
                 className={styles.buttons__add}
                 onClick={handleIncrement}
             />
-            <Button className={styles.buttons__submit} onClick={handleBasket}>
+            <Button
+                className={styles.buttons__submit}
+                onClick={handleBasket}
+            >
                 {t("button_2")}
             </Button>
-        </Typography>
+        </Box>
     );
 };
 

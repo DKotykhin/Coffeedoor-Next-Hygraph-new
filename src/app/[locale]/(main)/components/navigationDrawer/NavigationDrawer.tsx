@@ -59,12 +59,17 @@ const NavigationDrawer: React.FC = () => {
 
     return (
         <Box className={styles.drawer}>
-            <MenuIcon
-                className={styles.drawer__icon}
+            <Button
                 onClick={toggleDrawer(true)}
-            />
+                className={styles.drawer__menuButton}
+                aria-label="menu"
+            >
+                <MenuIcon
+                    className={styles.drawer__menuIcon}
+                />
+            </Button>
             <Drawer anchor="right" open={state} onClick={toggleDrawer(false)}>
-                <Box className={styles.drawer__box}>
+                <Box role='navigation' className={styles.drawer__box}>
                     <Image
                         src={"/webp/logo_192x192.webp"}
                         alt="logo Coffeedoor"
@@ -113,6 +118,7 @@ const NavigationDrawer: React.FC = () => {
                         {langButtons.map(item => (
                             <Button
                                 key={item.key}
+                                aria-label={item.ariaLabel}
                                 onClick={() => router.push(`/${item.key}`)}
                                 className={(lang === item.key) ? styles.lang__button_active : styles.lang__button}
                             >

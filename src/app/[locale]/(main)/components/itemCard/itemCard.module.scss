@@ -23,8 +23,16 @@
         color: $color_lightGrey;
         margin-bottom: 8px;
     }
-    .card__boxItems p {
-        font-size: 14px;
+    .card__boxItems {
+        .card__order {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: $color_red;
+        }
+        .card__sort {
+            font-size: 14px;
+            color: $color_lightGrey;
+        }
     }
     .card__buttons {
         display: flex;

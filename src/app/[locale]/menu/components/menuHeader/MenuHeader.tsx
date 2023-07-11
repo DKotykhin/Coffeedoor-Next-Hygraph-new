@@ -42,6 +42,7 @@ const MenuHeader: React.FC = () => {
             {langButtons.map(item => (
                 <Button
                     key={item.key}
+                    aria-label={item.ariaLabel}
                     onClick={() => router.push(`/${item.key}/menu`)}
                     className={(lang === item.key) ? styles.menu__langButtonActive : styles.menu__langButton}
                 >

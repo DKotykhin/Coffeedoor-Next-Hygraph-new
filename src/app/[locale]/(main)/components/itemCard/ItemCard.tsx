@@ -86,22 +86,19 @@ const ItemCard: React.FC<IItemCard> = ({ item, lang }) => {
                     </Typography>
                     <Box className={styles.card__boxItems}>
                         {order &&
-                            <Typography color="#ff0000" sx={{ mb: 1 }}>
+                            <Typography className={styles.card__order}>
                                 {t("order")}
                             </Typography>
                         }
                         {weight &&
-                            <Typography variant="body2" color="text.secondary">
+                            <Typography className={styles.card__sort}>
                                 {t("weight")}
                                 {weight}
                                 {t("unit")}
                             </Typography>
                         }
                         {sort?.key &&
-                            <Typography
-                                variant="body2"
-                                color="text.secondary"
-                            >
+                            <Typography className={styles.card__sort}>
                                 {sort.key}{": "}{sort.value}
                             </Typography>
                         }
