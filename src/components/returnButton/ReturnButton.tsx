@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 
 import { useLang } from "hooks/useLang";
 
-import styles from "./Returnbutton.module.scss";
+import styles from "./ReturnButton.module.scss";
 
 const ReturnButton: React.FC = () => {
 

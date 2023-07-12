@@ -2,18 +2,15 @@
 
 import React from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 import { Typography, Box } from "@mui/material";
 
-import ReturnButton from "components/returnButton/ReturnButton";
 import sorry from '/public/webp/sorry_1.webp';
 
 import styles from "./error.module.scss";
 
 const Error: React.FC = () => {
-
-    const t = useTranslations("error");
 
     return (
         <Box className={styles.error}>
@@ -27,9 +24,11 @@ const Error: React.FC = () => {
                 />
             </Box>
             <Typography className={styles.error_title}>
-                {t("notFound")}
+                Page not found...
             </Typography>
-            <ReturnButton />
+            <Link href={`/`}>
+                <Typography className={styles.return_link}>Main Page</Typography>
+            </Link>
         </Box>
     );
 };
