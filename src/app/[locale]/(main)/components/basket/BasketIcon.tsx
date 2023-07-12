@@ -12,6 +12,7 @@ const StyledBadge = styled(Badge)`
     & .MuiBadge-badge {
         color: #00a1b6;
         top: 15px;
+        right: -4px;
         border: 2px solid #00a1b6;
         padding: 0 3px;
     }

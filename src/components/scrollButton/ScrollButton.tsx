@@ -33,6 +33,7 @@ const ScrollButton = () => {
             onClick={handleClick}
             animate={controls}
             initial={{ opacity: 0 }}
+            aria-label='up'
         >
             <KeyboardArrowUpIcon />
         </motion.button>

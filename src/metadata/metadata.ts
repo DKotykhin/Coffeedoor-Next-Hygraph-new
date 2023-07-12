@@ -18,6 +18,7 @@ export const mainPageMetaData: Metadata = {
     keywords: [
         "кава в зернах, кавомолка, пуровер, чай Soho, свыжообсмажена кава, купити каву в зернах",
     ],
+    metadataBase: new URL("https://i.ibb.co"),
     openGraph: {
         type: "website",
         url: "https://www.coffeedoor.space",
