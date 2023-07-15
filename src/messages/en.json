@@ -19,7 +19,7 @@
         "link_2": "Coffeebar",
         "titleA": "Coffee beans",
         "titleB": "Leaf tea",
-        "titleC": "Сoffee grinders",
+        "titleC": "Coffee grinders",
         "titleD": "Accessories",
         "titleE": "Jam",
         "titleX": "About",
@@ -44,10 +44,11 @@
         "subtitle": "We are:",
         "itemA": "Fast and quality service",
         "itemB": "High quality product",
-        "itemC": "Variety of Speciality coffee",
+        "itemC": "Variety of Specialty coffee",
         "itemD": "Opportunity to purchase tea, coffee beans and accessories for making coffee at home",
         "itemE": "Stylish and comfortable interior design",
-        "itemF": "A professional approach where everything matters"
+        "itemF": "A professional approach where everything matters",
+        "location": "Our Location"
     },
     "catalog": {
         "coffee_title": "Coffee beans",
@@ -56,7 +57,7 @@
         "tea_subtitle": "Natural black, green, herbal and fruit teas of the German TM SOHO. Made without the addition of dyes, artificial flavors, preservatives",
         "jam_title": "Jam TM ARTVILLAGE",
         "jam_subtitle": "Made strictly from natural ingredients",
-        "mills_title": "Сoffee grinders",
+        "mills_title": "Coffee grinders",
         "mills_subtitle": "If need to grind coffee at home",
         "accessories_title": "Coffee accessories",
         "accessories_subtitle": "For brewing coffee at home",

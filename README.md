@@ -12,7 +12,7 @@ A brief description of what this project does and who it's for
 
 ## Features
 
-- Online coffee, tea and assessories store for coffee bar & shop
+- Online coffee, tea and accessories store for coffee bar & shop
 - using latest Next JS 13 for SSR
 - latest routing architecture with App folder
 - Hygraph CMS for content placing
@@ -21,7 +21,8 @@ A brief description of what this project does and who it's for
 - Store basket with Telegram notification
 - React Hook Form and Yup for input validation
 - Three languages: ua, en, ru
-- Google Analitycs
+- Mapbox map
+- Google Analytics
 - Mobile friendly
 
 ## Environment Variables
